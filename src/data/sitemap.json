@@ -1,0 +1,10 @@
+[{
+	"text": "Home",
+	"link": "/",
+}, {
+	"text": "Sketches",
+	"link": "sketches"
+}, {
+	"text": "Turtle Game",
+	"link": "turtle"
+}]
