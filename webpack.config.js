@@ -24,6 +24,9 @@ console.log('Webpack environment:', env);
 
 var cfgs = {
 	devtool: 'cheap-module-eval-source-map',
+	resolve: {
+		moduleDirectories: 'node_modules'
+	},
 	entry: {
 		'main': ['./src/index']
 	},
@@ -34,8 +37,6 @@ var cfgs = {
 		publicPath: '/public'
 	},
 	plugins: [
-		// new ExtractTextPlugin("css/[name].css")
-		// new ExtractTextPlugin("css/[name].[hash].css")
 	],
 	module: {
 		loaders: [
@@ -86,11 +87,13 @@ case 'production':
 				warnings: false
 			}
 		})
+		// new ExtractTextPlugin("css/[name].css")
+		// new ExtractTextPlugin("css/[name].[hash].css")
 	);
-	cfgs.module.loaders[1].loader =
-		ExtractTextPlugin.extract("style-loader!css-loader");
-	cfgs.module.loaders[2].loader =
-		ExtractTextPlugin.extract("style-loader!css-loader!less-loader");
+	// cfgs.module.loaders[1].loader =
+	// 	ExtractTextPlugin.extract("style-loader', 'css-loader");
+	// cfgs.module.loaders[2].loader =
+	// 	ExtractTextPlugin.extract("style-loader', 'css-loader!less-loader");
 	break;
 default: break;
 }
