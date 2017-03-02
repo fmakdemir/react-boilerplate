@@ -1,52 +1,28 @@
+@import '../less/common.less';
+
+// positioning and only styling of main
 body {
 	margin: 0px;
-	font-family: arial;
+	padding: 0px;
 }
-#root {
-	header {
-		// positioning
-		box-sizing: border-box;
-		position: absolute;
-		top: 0px;
-		width: 100%;
-		height: 60px;
-		z-index: 100;
-	}
-	section {
-		box-sizing: border-box;
-		position: absolute;
-		top: 60px;
-		left: 0;
-		bottom: 30px;
-		right: 0;
-		min-height: calc(~'100% - 110px');
-		z-index: 98;
+.app {
+	display: flex;
+	flex-direction: column;
+	flex: 1 1 200px;
+	height: 100vh;
 
-		.side-bar {
-			box-sizing: border-box;
-			width: 100px;
-			padding: 10px
-		}
+	> section {
+		display: flex;
+		flex-direction: row;
+		flex: 1 1 200px;
 
-		.main {
-			box-sizing: border-box;
-			position: absolute;
-			left: 100px;
-			width: calc(~'100% - 100px');
-			height: 100%;
-			padding: 20px;
-			// display: inline-block;
-			background: #dedede;
-			color: #232323;
+		.main_wrapper {
+			overflow: scroll;
+			display: flex;
+			flex-direction: column;
+			flex: 1 1 0;
+			justify-content: space-between;
+			background-color: @main-bg;
 		}
-	}
-	footer {
-		// positioning
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		width: 100%;
-		padding: calc(~'(30px - 1em)/2') 0;
-		z-index: 99;
 	}
 }

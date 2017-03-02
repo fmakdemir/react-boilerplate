@@ -1,16 +1,34 @@
 import React from 'react';
-import './header.less';
+import { connect } from 'react-redux';
+import AppBar from 'material-ui/AppBar';
 
 class Header extends React.Component {
 	render() {
 		return (
-			<header>
-				<center>
-					<h1> {this.props.title || 'No title'} </h1>
-				</center>
-			</header>
+			<AppBar
+				{...this.props}
+				titleStyle={{textAlign: 'center'}}
+				/>
 		);
 	}
 }
+Header.propTypes = {
+	title: React.PropTypes.string.isRequired,
+	onLeftIconButtonTouchTap: React.PropTypes.func.isRequired
+};
 
-export default Header;
+const mapStateToProps = () => {
+	return {};
+};
+const mapDispatchToProps = (dispatch) => {
+	return {
+		onLeftIconButtonTouchTap: () => {
+			dispatch({type: 'SIDEBAR', open: true});
+		}
+	};
+};
+
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(Header);

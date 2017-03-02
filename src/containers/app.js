@@ -1,31 +1,38 @@
 import React from 'react';
+// custom
 import Header from './header';
 import Footer from './footer';
-import SideBar from './side-bar';
-// css file
-import './app.less';
+import SideBar from './sidebar';
+import Notif from 'components/notif';
+// stlyes
+import style from './app.less';
 
 class App extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			test: Date.now()
-		};
-	}
 	render() {
 		return (
-			<div>
-				<Header title="Fma's React Boilerplate" />
+			<div className={style.app}>
+				<Header
+					title="Fma's React Boilerplate"
+					icon="/img/icon-32x32.png" />
 				<section>
-					<SideBar/>
-					<div className='main'>
-					{this.props.children}
+					<SideBar style={{
+						float: 'left'
+					}}/>
+					<div className={style.main_wrapper}>
+						<div className={style.main}>
+						{this.props.children}
+						</div>
+						<Footer note={ 'namazvakitleri.com.tr 2017 ©' }/>
 					</div>
 				</section>
-				<Footer note={ 'Fmakdemir 2017 ©' }/>
+				<Notif />
 			</div>
 		);
 	}
 }
+
+App.propTypes = {
+	children: React.PropTypes.object.isRequired
+};
 
 export default App;

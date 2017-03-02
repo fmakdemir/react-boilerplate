@@ -1,3 +1,4 @@
-export Home from './home';
-export About from './about';
-export Sketches from './sketches';
+// this file is needed for asteriks imports
+import Home from './home';
+import About from './about';
+export default {Home, About};

@@ -51,3 +51,5 @@ jspm_packages
 
 # Yarn Integrity file
 .yarn-integrity
+# mac file
+.DS_Store

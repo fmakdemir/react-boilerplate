@@ -1,10 +1,7 @@
 [{
-	"text": "Home",
-	"link": "/",
+    "link": "/",
+    "text": "Home"
 }, {
-	"text": "Sketches",
-	"link": "sketches"
-}, {
-	"text": "Turtle Game",
-	"link": "turtle"
+    "link": "/about",
+    "text": "About"
 }]

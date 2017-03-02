@@ -12,13 +12,13 @@ console.log('Express environment:', app.settings.env);
 
 var output = webpack_config.output;
 console.log('Static files mapped from:', output.publicPath);
-console.log('Static files mapped to:', output.path);
 
+// send static files from dist folder
 app.use(output.publicPath, express.static(output.path));
 
-app.get('/', function(req, res) {
+app.get('*', function(req, res) {
 	console.info('Requested:', req.path);
-	res.sendFile(path.join(__dirname, 'index.html'));
+	res.sendFile(path.resolve(output.path, 'index.html'));
 });
 
 const PORT = process.env.PORT || 3001;
@@ -28,5 +28,4 @@ app.listen(PORT, function(err) {
 		return console.error(err);
 	}
 	console.log(chalk.green('Listening at http://localhost:' + PORT));
-	open('http://localhost:' + PORT);
 });

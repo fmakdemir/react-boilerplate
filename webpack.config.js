@@ -1,7 +1,6 @@
 var path = require('path');
 var webpack = require('webpack');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 /* NOTE:
  * about "Unknown word" error with import "css!file.css": https://github.com/webpack-contrib/css-loader/issues/295#issuecomment-231510027
  * basically do not use both "css!file.css" and loader config together
@@ -25,7 +24,10 @@ console.log('Webpack environment:', env);
 var cfgs = {
 	devtool: 'cheap-module-eval-source-map',
 	resolve: {
-		moduleDirectories: 'node_modules'
+		modules: [
+			path.join(__dirname, 'src'),
+			'node_modules'
+		]
 	},
 	entry: {
 		'main': ['./src/index']
@@ -34,29 +36,66 @@ var cfgs = {
 		path: path.join(__dirname, 'dist'),
 		filename: 'js/[name].js',
 		// filename: 'js/[name].[hash].js',
-		publicPath: '/public'
+		publicPath: '/'
 	},
 	plugins: [
 	],
 	module: {
-		loaders: [
+		rules: [
 			// parse and transform jsx files
 			{
 				test: /\.js$/,
-				loaders: ['babel'],
+				use: [{loader: 'babel-loader'}],
 				include: path.join(__dirname, 'src')
 			},
 			// these two configurations make makes "css-loader!file.css" obsolete
 			// Extract css files
 			{
 				test: /\.css$/,
-				loader: 'style-loader!css-loader',
-				include: path.join(__dirname, 'src')
+				use: ['style-loader',
+					{
+						loader: 'css-loader',
+						options: {
+							modules: true,
+							localIdentName: '[path][name]__[local]'
+						}
+					}
+				],
+				include: [
+					path.join(__dirname, 'src')
+				]
+			},
+			// extract css files from installed libraries
+			{
+				test: /\.css$/,
+				use: [
+					'style-loader',
+					'css-loader'
+				],
+				include: [
+					path.join(__dirname, 'node_module')
+				]
 			},
 			// Extract less files
 			{
 				test: /\.less$/,
-				loader: 'style-loader!css-loader!less-loader',
+				use: [
+					'style-loader',
+					{
+						loader: 'css-loader',
+						options: {
+							modules: true,
+							localIdentName: '[path][name]__[local]'
+						}
+					},
+					'less-loader'
+				],
+				include: path.join(__dirname, 'src')
+			},
+			// Extract json files
+			{
+				test: /\.json$/,
+				use: 'json-loader',
 				include: path.join(__dirname, 'src')
 			}
 		]
@@ -65,18 +104,17 @@ var cfgs = {
 
 switch (env) {
 case 'development':
-	cfgs.devtool = 'cheap-module-eval-source-map';
+	cfgs.devtool = 'eval';
 	cfgs.entry['main'].unshift('webpack-hot-middleware/client');
 	cfgs.plugins.push(
 		new webpack.HotModuleReplacementPlugin(),
-		new webpack.NoErrorsPlugin()
+		new webpack.NoEmitOnErrorsPlugin()
 	);
-	cfgs.module.loaders[0].loaders.unshift('react-hot');
+	cfgs.module.rules[0].use.unshift({loader: 'react-hot-loader'});
 	break;
 case 'production':
 	cfgs.devtool = 'cheap-module-source-map';
 	cfgs.plugins.push(
-		new webpack.optimize.OccurenceOrderPlugin(),
 		new webpack.DefinePlugin({
 			'process.env': {
 				'NODE_ENV': JSON.stringify('production')
@@ -84,16 +122,14 @@ case 'production':
 		}),
 		new webpack.optimize.UglifyJsPlugin({
 			compressor: {
-				warnings: false
-			}
-		})
-		// new ExtractTextPlugin("css/[name].css")
-		// new ExtractTextPlugin("css/[name].[hash].css")
+				warnings: false,
+				screw_ie8: true
+			},
+			comments: false
+		}),
+		new CopyWebpackPlugin([{from: 'static'}],
+			{copyUnmodified: false})
 	);
-	// cfgs.module.loaders[1].loader =
-	// 	ExtractTextPlugin.extract("style-loader', 'css-loader");
-	// cfgs.module.loaders[2].loader =
-	// 	ExtractTextPlugin.extract("style-loader', 'css-loader!less-loader");
 	break;
 default: break;
 }

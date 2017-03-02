@@ -1,6 +1,10 @@
-a.active {
-	color: red;
-}
-a.active:visited {
-	color: black;
+@import '../less/common.less';
+
+.sidebar {
+	a, a:visited, a:active {
+		text-decoration: none;
+	}
+	:global(a.active) div {
+		background-color: rgba(0, 0, 0, 0.05);
+	}
 }
