@@ -25,7 +25,7 @@ const CloseIcon = <FontIcon className='material-icons'>close</FontIcon>;
 class Home extends React.Component {
 	render() {
 		return (
-			<div className={style.home}>
+			<div>
 				<FloatingActionButton
 					backgroundColor={blue500}
 					style={{position: 'fixed', right: 10, bottom: 10, zIndex: 2}}
@@ -34,38 +34,40 @@ class Home extends React.Component {
 					>
 					{IdeaIcon}
 				</FloatingActionButton>
-				<Card
-					style={{maxWidth: 400}}
-					className={style.hero_card} >
-					<CardHeader
-						avatar='https://avatars1.githubusercontent.com/u/1462379?v=3&s=80'
-						title='From me'
-						subtitle='with loves'
-						closeIcon={CloseIcon}
-						onClick={() => {this.props.onAvatarTap();}} />
-					<MediaQuery minDeviceHeight={500}>
-						<CardMedia>
-							<img src={card_img_url} />
-						</CardMedia>
-						<CardTitle
-							title="Photo by Camalti Photograpy"
-							subtitle="Kuzalan - Giresun" />
-						<CardText>
-						  Photo is taken by my friend. Check out by clicking the
-						  link at the bottom.
-						</CardText>
-					</MediaQuery>
-					<CardActions>
-						<FlatButton
-							label='Click me'
-							onClick={this.props.cardAction1} />
-						<FlatButton
-							label='Camalti Photograpy'
-							href='https://fb.com/camaltiphotography'
-							target="_blank"
-							primary={true} />
-					</CardActions>
-				</Card>
+				<div className={style.home}>
+					<Card
+						style={{maxWidth: 400}}
+						className={style.hero_card} >
+						<CardHeader
+							avatar='https://avatars1.githubusercontent.com/u/1462379?v=3&s=80'
+							title='From me'
+							subtitle='with loves'
+							closeIcon={CloseIcon}
+							onClick={() => {this.props.onAvatarTap();}} />
+						<MediaQuery minDeviceHeight={500}>
+							<CardMedia>
+								<img src={card_img_url} />
+							</CardMedia>
+							<CardTitle
+								title="Photo by Camalti Photograpy"
+								subtitle="Kuzalan - Giresun" />
+							<CardText>
+							  Photo is taken by my friend. Check out by clicking the
+							  link at the bottom.
+							</CardText>
+						</MediaQuery>
+						<CardActions>
+							<FlatButton
+								label='Click me'
+								onClick={this.props.cardAction1} />
+							<FlatButton
+								label='Camalti Photograpy'
+								href='https://fb.com/camaltiphotography'
+								target="_blank"
+								primary={true} />
+						</CardActions>
+					</Card>
+				</div>
 			</div>
 		);
 	}
