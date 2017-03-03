@@ -32,6 +32,7 @@ Features
 - Local styling enabled to prevent global css rules messing all style.
 - Material-UI_
 - Router with redux history synchronization.
+- Redux DevTools enabled for monitoring.
 
 Setup
 #####
@@ -46,6 +47,7 @@ Setup
 
 `yarn` ensures you are using packages the same with deployed and tested version.
 
+
 Development
 -----------
 
@@ -58,6 +60,22 @@ Notes:
   can be accessed with imported variable. See :code:`pages/home.less` with and note that
   :code:`.home` is given to files with :code:`style.home` variable.
 - If you really want global style with classes use :code:`:global(.my-global-class)` notation.
+
+
+Useful extensions
+~~~~~~~~~~~~~~~~~
+
+- [Redux DevTools](https://github.com/zalmoxisus/redux-devtools-extension)
+  Allows you to monitor changes in redux store.
+- [React DevTools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
+  For chrome allows you to inspect React components.
+
+Example usage of Redux DevTools:
+
+.. image:: docs/imgs/redux-dev-tools.png
+    :height: 400px
+    :align: center
+
 
 Production
 ----------

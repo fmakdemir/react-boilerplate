@@ -36,8 +36,7 @@ class Home extends React.Component {
 				</FloatingActionButton>
 				<div className={style.home}>
 					<Card
-						style={{maxWidth: 400}}
-						className={style.hero_card} >
+						style={{maxWidth: 400}} >
 						<CardHeader
 							avatar='https://avatars1.githubusercontent.com/u/1462379?v=3&s=80'
 							title='From me'
