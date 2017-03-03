@@ -34,6 +34,10 @@ Features
 - Router with redux history synchronization.
 - Redux DevTools enabled for monitoring.
 
+Will be added
+~~~~~~~~~~~~~
+- Tests with mocha
+
 Setup
 #####
 
