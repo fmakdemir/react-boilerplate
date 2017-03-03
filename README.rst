@@ -14,14 +14,15 @@ Material-UI components.
 
 Example screenshots:
 
-.. image:: docs/imgs/ss-landscape.png
-    :height: 400px
+.. use images with height 400 because idiot github sanitize heights
+  you can convert normal ones with `convert inp.png -resize x400 out.png`
 
-.. image:: docs/imgs/ss-portrait.png
-    :height: 400px
+.. image:: docs/imgs/ss-landscape-min.png
 
-.. image:: docs/imgs/ss-sidebar.png
-    :height: 400px
+.. image:: docs/imgs/ss-portrait-min.png
+
+.. image:: docs/imgs/ss-sidebar-min.png
+
 
 Features
 ########
@@ -77,8 +78,7 @@ Useful extensions
 
 Example usage of Redux DevTools:
 
-.. image:: docs/imgs/redux-dev-tools.png
-    :height: 400px
+.. image:: docs/imgs/redux-dev-tools-min.png
     :align: center
 
 
