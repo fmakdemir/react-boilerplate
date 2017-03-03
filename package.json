@@ -16,7 +16,7 @@
     "url": "git+https://github.com/fmakdemir/react-boilerplate.git"
   },
   "author": "fma",
-  "license": "ISC",
+  "license": "MIT",
   "homepage": "https://github.com/fmakdemir/react-boilerplate#readme",
   "devDependencies": {
     "babel-core": "^6.21.0",
@@ -51,7 +51,6 @@
   },
   "dependencies": {
     "axios": "^0.15.3",
-    "firebase": "^3.6.10",
     "forever": "^0.15.3",
     "immutability-helper": "^2.1.2",
     "material-ui": "^0.16.7",
