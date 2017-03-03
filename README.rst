@@ -1,6 +1,6 @@
-----------------------------------------------
+==============================================
 Yet Another React Boilerplate with Material-UI
-----------------------------------------------
+==============================================
 
 .. image:: https://travis-ci.org/fmakdemir/react-boilerplate.svg?branch=master
     :target: https://travis-ci.org/fmakdemir/react-boilerplate
@@ -35,7 +35,8 @@ Features
 - Redux DevTools enabled for monitoring.
 
 Will be added
-~~~~~~~~~~~~~
+-------------
+
 - Tests with mocha
 
 Setup
