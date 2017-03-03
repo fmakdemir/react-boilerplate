@@ -39,6 +39,7 @@ Will be added
 -------------
 
 - Tests with mocha
+- Generating docs and docs
 
 Setup
 #####
@@ -71,10 +72,9 @@ Notes:
 Useful extensions
 ~~~~~~~~~~~~~~~~~
 
-- [Redux DevTools](https://github.com/zalmoxisus/redux-devtools-extension)
-  Allows you to monitor changes in redux store.
-- [React DevTools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
-  For chrome allows you to inspect React components.
+- `Redux DevTools`_: Allows you to monitor changes in redux store.
+- `React DevTools`_: For chrome allows you to inspect React components.
+
 
 Example usage of Redux DevTools:
 
@@ -109,3 +109,5 @@ Project Structure
 
 .. _material-ui: http://www.material-ui.com
 .. _webpack: https://webpack.js.org/
+.. _redux devtools: https://github.com/zalmoxisus/redux-devtools-extension
+.. _react devtools: https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi
