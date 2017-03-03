@@ -85,6 +85,8 @@ Production
 ----------
 
 Static deployment: :code:`npm run build` will generate a :code:`dist` folder with all necessary files.
+Please note that if you will use static deployment redirect all non-static file requests to `index.html`
+React router will handle 404 messages.
 
 Serving over node: :code:`npm start` (does build itself no need to run build separately)
 
