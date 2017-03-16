@@ -1,3 +1,4 @@
+/*eslint no-console:"off"*/
 var path = require('path');
 var webpack = require('webpack');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -26,17 +27,17 @@ var cfgs = {
 	resolve: {
 		modules: [
 			path.join(__dirname, 'src'),
-			'node_modules'
-		]
+			'node_modules',
+		],
 	},
 	entry: {
-		'main': ['./src/index']
+		'main': ['./src/index'],
 	},
 	output: {
 		path: path.join(__dirname, 'dist'),
 		filename: 'js/[name].js',
 		// filename: 'js/[name].[hash].js',
-		publicPath: '/'
+		publicPath: '/',
 	},
 	plugins: [
 	],
@@ -46,7 +47,7 @@ var cfgs = {
 			{
 				test: /\.js$/,
 				use: [{loader: 'babel-loader'}],
-				include: path.join(__dirname, 'src')
+				include: path.join(__dirname, 'src'),
 			},
 			// these two configurations make makes "css-loader!file.css" obsolete
 			// Extract css files
@@ -57,24 +58,24 @@ var cfgs = {
 						loader: 'css-loader',
 						options: {
 							modules: true,
-							localIdentName: '[path][name]__[local]'
-						}
-					}
+							localIdentName: '[path][name]__[local]',
+						},
+					},
 				],
 				include: [
-					path.join(__dirname, 'src')
-				]
+					path.join(__dirname, 'src'),
+				],
 			},
 			// extract css files from installed libraries
 			{
 				test: /\.css$/,
 				use: [
 					'style-loader',
-					'css-loader'
+					'css-loader',
 				],
 				include: [
-					path.join(__dirname, 'node_module')
-				]
+					path.join(__dirname, 'node_module'),
+				],
 			},
 			// Extract less files
 			{
@@ -85,21 +86,21 @@ var cfgs = {
 						loader: 'css-loader',
 						options: {
 							modules: true,
-							localIdentName: '[path][name]__[local]'
-						}
+							localIdentName: '[path][name]__[local]',
+						},
 					},
-					'less-loader'
+					'less-loader',
 				],
-				include: path.join(__dirname, 'src')
+				include: path.join(__dirname, 'src'),
 			},
 			// Extract json files
 			{
 				test: /\.json$/,
 				use: 'json-loader',
-				include: path.join(__dirname, 'src')
-			}
-		]
-	}
+				include: path.join(__dirname, 'src'),
+			},
+		],
+	},
 };
 
 switch (env) {
@@ -117,15 +118,15 @@ case 'production':
 	cfgs.plugins.push(
 		new webpack.DefinePlugin({
 			'process.env': {
-				'NODE_ENV': JSON.stringify('production')
-			}
+				'NODE_ENV': JSON.stringify('production'),
+			},
 		}),
 		new webpack.optimize.UglifyJsPlugin({
 			compressor: {
 				warnings: false,
-				screw_ie8: true
+				screw_ie8: true,
 			},
-			comments: false
+			comments: false,
 		}),
 		new CopyWebpackPlugin([{from: 'static'}],
 			{copyUnmodified: false})

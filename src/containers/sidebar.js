@@ -45,7 +45,7 @@ class Sidebar extends React.Component {
 }
 Sidebar.propTypes = {
 	open: React.PropTypes.bool.isRequired,
-	onTouchTap: React.PropTypes.func.isRequired
+	onTouchTap: React.PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => {
@@ -56,7 +56,7 @@ const mapDispatchToProps = (dispatch) => {
 	return {
 		onTouchTap: () => {
 			dispatch(closeSidebarAction());
-		}
+		},
 	};
 };
 

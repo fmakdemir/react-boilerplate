@@ -17,13 +17,13 @@ injectTapEventPlugin();
 
 const combinedReducers = combineReducers({
 	...reducers,
-	routing: routerReducer
+	routing: routerReducer,
 });
 
 let store = createStore(combinedReducers, // combine reducers
 	{ // initial data for reducers
 		sidebar: false,
-		notif: {open: false, message: ''}
+		notif: {open: false, message: ''},
 	},
 	// enable redux monitor
 	window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());

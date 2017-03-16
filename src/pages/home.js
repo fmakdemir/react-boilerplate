@@ -71,7 +71,7 @@ class Home extends React.Component {
 Home.propTypes = {
 	onFabClick: React.PropTypes.func.isRequired,
 	onAvatarTap: React.PropTypes.func.isRequired,
-	cardAction: React.PropTypes.func.isRequired
+	cardAction: React.PropTypes.func.isRequired,
 };
 
 // redux mappers
@@ -88,7 +88,7 @@ const mapDispatchToProps = (dispatch) => {
 		},
 		cardAction: () => {
 			dispatch(createNotifAction('wow you listened to a button...'));
-		}
+		},
 	};
 };
 

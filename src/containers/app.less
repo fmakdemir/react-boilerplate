@@ -10,19 +10,12 @@ body {
 	flex-direction: column;
 	flex: 1 1 200px;
 	height: 100vh;
-
-	> section {
-		display: flex;
-		flex-direction: row;
-		flex: 1 1 200px;
-
-		.main_wrapper {
-			overflow: scroll;
-			display: flex;
-			flex-direction: column;
-			flex: 1 1 0;
-			justify-content: space-between;
-			background-color: @main-bg;
-		}
-	}
+}
+.main_wrapper {
+	overflow: scroll;
+	display: flex;
+	flex-direction: column;
+	flex: 1 1 0;
+	justify-content: space-between;
+	background-color: @main-bg;
 }

@@ -3,7 +3,8 @@ import RefreshIndicator from 'material-ui/RefreshIndicator';
 
 class About extends React.Component {
 	render() {
-		return (<div>
+		return (
+			<div>
 				<RefreshIndicator
 					size={50}
 					left={70}
@@ -12,7 +13,7 @@ class About extends React.Component {
 					status="loading"
 					style={{display: 'inline-block', position: 'relative'}}
 				/>
-		</div>);
+			</div>);
 	}
 }
 

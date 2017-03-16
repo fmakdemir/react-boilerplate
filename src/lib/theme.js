@@ -6,7 +6,7 @@ const thm_color = colors.blue.colors;
 baseTheme.appBar = {
 	height: 50,
 	color: thm_color[500].hex,
-	textColor: 'white'
+	textColor: 'white',
 };
 
 export default getMuiTheme(baseTheme);

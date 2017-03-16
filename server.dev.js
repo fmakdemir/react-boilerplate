@@ -1,9 +1,9 @@
+/*eslint no-console:"off"*/
 process.env.NODE_ENV = 'development';
 
 const path = require('path');
 const express = require('express');
 const chalk = require('chalk');
-const open = require('open');
 const webpack = require('webpack');
 
 const webpack_config = require('./webpack.config');
@@ -16,7 +16,7 @@ console.log('Express environment:', app.settings.env);
 
 // enable dev & hot reload middlewares
 app.use(require('webpack-dev-middleware')(compiler, {
-	publicPath: webpack_config.output.publicPath
+	publicPath: webpack_config.output.publicPath,
 }));
 
 app.use(require('webpack-hot-middleware')(compiler));

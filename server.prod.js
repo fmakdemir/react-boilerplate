@@ -1,9 +1,9 @@
+/*eslint no-console:"off"*/
 process.env.NODE_ENV = 'production';
 
 const path = require('path');
 const express = require('express');
 const chalk = require('chalk');
-const open = require('open');
 
 const webpack_config = require('./webpack.config');
 

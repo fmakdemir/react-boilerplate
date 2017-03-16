@@ -24,7 +24,7 @@ Notif.propTypes = {
 	open: React.PropTypes.bool.isRequired,
 	message: React.PropTypes.string.isRequired,
 	onActionTouchTap: React.PropTypes.func.isRequired,
-	onRequestClose: React.PropTypes.func.isRequired
+	onRequestClose: React.PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => {
@@ -38,7 +38,7 @@ const mapDispatchToProps = (dispatch) => {
 		},
 		onRequestClose: () => { // update store
 			dispatch(closeNotifAction());
-		}
+		},
 	};
 };
 

@@ -14,7 +14,7 @@ class Header extends React.Component {
 }
 Header.propTypes = {
 	title: React.PropTypes.string.isRequired,
-	onLeftIconButtonTouchTap: React.PropTypes.func.isRequired
+	onLeftIconButtonTouchTap: React.PropTypes.func.isRequired,
 };
 
 const mapStateToProps = () => {
@@ -24,7 +24,7 @@ const mapDispatchToProps = (dispatch) => {
 	return {
 		onLeftIconButtonTouchTap: () => {
 			dispatch({type: 'SIDEBAR', open: true});
-		}
+		},
 	};
 };
 

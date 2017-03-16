@@ -1,4 +1,5 @@
 import React from 'react';
+import Helmet from 'react-helmet';
 // custom
 import Header from './header';
 import Footer from './footer';
@@ -8,23 +9,32 @@ import Notif from 'components/notif';
 import style from './app.less';
 
 class App extends React.Component {
+	constructor(props) {
+		super(props);
+		let activePage = false;
+		if (this.props.children) {
+			activePage = this.props.children.type.displayName;
+			activePage = activePage.replace(/^Connect\((.*)\)/, '$1');
+		}
+		let title = 'Hi' + (activePage? ' - ' + activePage: '');
+		this.state = {
+			title,
+		};
+	}
 	render() {
 		return (
 			<div className={style.app}>
+				<Helmet title={this.state.title} />
 				<Header
 					title="Fma's React Boilerplate"
 					icon="/img/icon-32x32.png" />
-				<section>
-					<SideBar style={{
-						float: 'left'
-					}}/>
-					<div className={style.main_wrapper}>
-						<div className={style.main}>
-						{this.props.children}
-						</div>
-						<Footer note={ 'namazvakitleri.com.tr 2017 ©' }/>
-					</div>
-				</section>
+				<SideBar style={{
+					float: 'left',
+				}} />
+				<div className={style.main_wrapper}>
+					{this.props.children}
+				</div>
+				<Footer />
 				<Notif />
 			</div>
 		);
@@ -32,7 +42,7 @@ class App extends React.Component {
 }
 
 App.propTypes = {
-	children: React.PropTypes.object.isRequired
+	children: React.PropTypes.object.isRequired,
 };
 
 export default App;
