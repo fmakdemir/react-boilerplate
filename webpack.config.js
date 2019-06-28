@@ -116,11 +116,6 @@ case 'development':
 case 'production':
 	cfgs.devtool = 'cheap-module-source-map';
 	cfgs.plugins.push(
-		new webpack.DefinePlugin({
-			'process.env': {
-				'NODE_ENV': JSON.stringify('production'),
-			},
-		}),
 		new webpack.optimize.UglifyJsPlugin({
 			compressor: {
 				warnings: false,
@@ -128,8 +123,7 @@ case 'production':
 			},
 			comments: false,
 		}),
-		new CopyWebpackPlugin([{from: 'static'}],
-			{copyUnmodified: false})
+		new CopyWebpackPlugin([{from: 'static'}], {copyUnmodified: false})
 	);
 	break;
 default: break;
